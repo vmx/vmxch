@@ -49,7 +49,7 @@ with the filter parameter get `eval()`ed in the if statement.
 Examples:
 
     $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/filter/all?filter=doc.color=="blue"'
-        {"rows":[
+    {"rows":[
     {"_id":"doc1","_rev":"1-fcc4a130df1a91f981a80bed05e5d2ab","color":"blue"}
     ]}
 
