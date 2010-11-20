@@ -15,7 +15,7 @@ you can apply list functions to it
 
 Example:
 
-    curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_view/all'
+    $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_view/all'
     {"total_rows":3,"offset":0,"rows":[
     {"id":"doc1","key":null,"value":{"_id":"doc1","_rev":"1-fcc4a130df1a91f981a80bed05e5d2ab","color":"blue"}},
     {"id":"doc2","key":null,"value":{"_id":"doc2","_rev":"1-5f9b73300433277490f800eae6fd321d","color":"red"}},
@@ -32,11 +32,11 @@ Returns the number of items within the result, instead of the result itself.
 
 Examples:
 
-   $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/count/all'
-   {"count": 3}
+    $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/count/all'
+    {"count": 3}
 
-   $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/count/all?limit=1'
-   {"count": 1}
+    $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/count/all?limit=1'
+    {"count": 1}
 
 ### filter.js ###
 
@@ -48,12 +48,12 @@ with the filter parameter get `eval()`ed in the if statement.
 
 Examples:
 
-    curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/filter/all?filter=doc.color=="blue"'
+    $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/filter/all?filter=doc.color=="blue"'
         {"rows":[
     {"_id":"doc1","_rev":"1-fcc4a130df1a91f981a80bed05e5d2ab","color":"blue"}
     ]}
 
-    curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/filter/all?filter=doc.color=="blue"||doc.color=="red"'
+    $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/filter/all?filter=doc.color=="blue"||doc.color=="red"'
     {"rows":[
     {"_id":"doc1","_rev":"1-fcc4a130df1a91f981a80bed05e5d2ab","color":"blue"}
     {"_id":"doc2","_rev":"1-5f9b73300433277490f800eae6fd321d","color":"red"}
