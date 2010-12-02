@@ -58,3 +58,17 @@ Examples:
     {"_id":"doc1","_rev":"1-fcc4a130df1a91f981a80bed05e5d2ab","color":"blue"}
     {"_id":"doc2","_rev":"1-5f9b73300433277490f800eae6fd321d","color":"red"}
     ]}
+
+### geojson.js ###
+
+This function outputs a GeoJSON FeatureCollection (compatible with
+OpenLayers). The geometry is stored in the `geometry` property, all
+other properties in the `properties` property.
+
+Examples:
+
+    $ curl -X PUT -d '{"type":"Feature", "color":"orange" ,"geometry":{"type":"Point","coordinates":[11.395,48.949444]}}' 'http://localhost:5984/vmxch/myfeature'
+    {"ok":true,"id":"myfeature","rev":"1-2eeb1e5eee6c8e7507b671aa7d5b0654"}
+
+    $ curl -X GET 'http://localhost:5984/vmxch/_design/vmxch/_list/geojson/all'
+    {"type": "FeatureCollection", "features":[{"type": "Feature", "geometry": {"type":"Point","coordinates":[11.395,48.949444]}, "properties": {"_id":"myfeature","_rev":"1-2eeb1e5eee6c8e7507b671aa7d5b0654","type":"Feature","color":"orange"}}
